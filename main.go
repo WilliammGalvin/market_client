@@ -4,10 +4,16 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os"
 )
 
 func main() {
-	conn, err := net.Dial("tcp", "127.0.0.1:5005")
+	serverIP := os.Getenv("MARKET_SERVER_IP")
+	if serverIP == "" {
+		serverIP = "127.0.0.1"
+	}
+
+	conn, err := net.Dial("tcp", serverIP + ":5005")
 	if err != nil {
 		log.Fatal("Failed to connect:", err)
 	}

@@ -1,0 +1,8 @@
+# Ignore Go build cache and binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+bin/
